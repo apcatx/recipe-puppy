@@ -10,6 +10,7 @@ input.addEventListener("keypress", function(e) {
       .then(function(response) {
         if (response.status !== 200) {
           console.log(response);
+          return;
         }
         response.json().then(function(obj) {
           console.log(obj);
@@ -19,7 +20,7 @@ input.addEventListener("keypress", function(e) {
             template = `
             <div class="recipes">
               <a href="${data.href}">
-              <img src="${data.thumbnail}" onError="this.onerror=null;this.src='puppy.png'">
+              <img src="${data.thumbnail}" onError="this.src='puppy.png'">
               <h3>${data.title}</h3>
               </a>
             </div>
